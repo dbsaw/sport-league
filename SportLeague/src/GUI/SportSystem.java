@@ -1386,13 +1386,11 @@ public class SportSystem extends javax.swing.JFrame {
         }
 
         txtmanagerTeam.setSelectedIndex(0);
-        
-        
-        
+
         //set the placeholder value in add manager dialog
         txtmanagerDOB.setText("YYYY-MM-DD");
         txtmanagerDOB.setForeground(new java.awt.Color(51, 51, 51));
-        
+
     }//GEN-LAST:event_btnAddManagerActionPerformed
 
     private void btnCancelAddManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelAddManagerActionPerformed
@@ -1411,11 +1409,15 @@ public class SportSystem extends javax.swing.JFrame {
         Team teamName;
         double salary = 0;
         String Qualification;
+        String day, month, year;
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //problem here
 
         name = txtmanagerName.getText();
-        dob = LocalDate.parse(txtmanagerDOB.getText(), formatter);
-//        dob= LocalDate.parse();
+        day = SDay.getValue().toString();
+        month = SMonth.getValue().toString();
+        year = SYear.getValue().toString();
+        dob = LocalDate.parse(day+"/"+month+"/"+year,formatter);
         address = txtmanagerAddress.getText();
 //        nationality = txtmanagerNationality.getText();
         bounes = Double.parseDouble(txtmanagerBonus.getText());
@@ -1423,14 +1425,14 @@ public class SportSystem extends javax.swing.JFrame {
 //        salary = Double.parseDouble(txtmanagerSalary.getText());
         Qualification = txtmanagerQuali.getText();
 
-//        System.out.println(name);
-//        System.out.println(dob);
-//        System.out.println(address);
-//        System.out.println(nationality);
-//        System.out.println(bounes);
-////         System.out.println(team);
-//        System.out.println(salary);
-//        System.out.println(Qualification);
+        System.out.println(name);
+        System.out.println(dob);
+        System.out.println(address);
+        System.out.println(nationality);
+        System.out.println(bounes);
+//         System.out.println(team);
+        System.out.println(salary);
+        System.out.println(Qualification);
 //  Create the manager object 
 //        Manager m1 = new Manager(name, dob, address, nationality, salary, bounes, Qualification);
         JOptionPane.showMessageDialog(Parent, "The manager successful add into the system");
@@ -1624,5 +1626,4 @@ public class SportSystem extends javax.swing.JFrame {
     }
 
     //
-    
 }
